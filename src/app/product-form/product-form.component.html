@@ -1,0 +1,69 @@
+<form [formGroup]="productProfileForm" (ngSubmit)="onSubmit2()">
+    <div>
+        <label for="productCode">รหัสสินค้า: </label>
+        <input id="productCode" type="text" formControlName="c1" value="1">
+    </div>
+    <div>
+        <label for="productName">ชื่อสินค้า: </label>
+        <input id="productName" type="text" formControlName="c2" value="2">
+    </div>
+    <div>
+        <label for="productImage">ภาพ: </label>
+        <input id="productImage" type="text" formControlName="c3" value="3">
+    </div>
+    <div>
+        <label for="productCategory">หมวด: </label>
+        <input id="productCategory" type="text" formControlName="c4" value="4">
+    </div>
+    <div>
+        <label for="buyPrice">ราคาขาย: </label>
+        <input id="buyPrice" type="text" formControlName="c5" value="5">
+    </div>
+    <div>
+        <label for="costPrice">ราคาต้นทุน: </label>
+        <input id="costPrice" type="text" formControlName="c6" value="6">
+    </div>
+    <div>
+        <label for="field7">....: </label>
+        <input id="field7" type="text" formControlName="c7" value="7">
+    </div>                
+    <div>
+        <label for="field8">....: </label>
+        <input id="field8" type="text" formControlName="c8" value="8">
+    </div> 
+    <div>
+        <label for="field9">....: </label>
+        <input id="field9" type="text" formControlName="c9" value="9">
+    </div>     
+    <button type="submit" [disabled]="!productProfileForm.valid">Onsubmit2()</button>
+</form>
+<table>
+    <thead>
+      <tr>
+        <th>Product Code</th>
+        <th>Product Name</th>
+        <th>Product Line</th>
+        <th>Product Scale</th>
+        <th>Vendor</th>
+        <th>Description</th>
+        <th>Quantity In Stock</th>
+        <th>Buy Price</th>
+        <th>MSRP</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products$">
+        <td>{{ product.productCode }}</td>
+        <td>{{ product.productName }}</td>
+        <td>{{ product.productLine }}</td>
+        <td>{{ product.productScale }}</td>
+        <td>{{ product.productVendor }}</td>
+        <td>{{ product.productDescription }}</td>
+        <td>{{ product.quantityInStock }}</td>
+        <td>{{ product.buyPrice }}</td>
+        <td>{{ product.MSRP }}</td>
+      </tr>
+    </tbody>
+  </table>
+<button (click)="getProducts()">Load Products</button>
+
